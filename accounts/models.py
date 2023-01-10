@@ -3,8 +3,6 @@ from django.contrib.auth.models import AbstractBaseUser,BaseUserManager
 from django.db.models.fields.related import ForeignKey,OneToOneField
 
 
-
-
 class UserManager(BaseUserManager):
     def create_user(self,first_name,last_name,username,email,password=None):
         if not email:
@@ -38,11 +36,11 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser):
-    RESTAURANT=1
+    VENDOR=1
     CUSTOMER=2
 
     ROLE_CHOICES=(
-        (RESTAURANT,'Restaurant'),
+        (VENDOR,'Vendor'),
         (CUSTOMER,'Customer'),
     )
     first_name=models.CharField(max_length=50)
